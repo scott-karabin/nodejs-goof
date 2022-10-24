@@ -15,7 +15,9 @@ jobs:
       # it's imperative to install npm packages so that Snyk will test the versions of the deps that will be part of the build
       - run:
           name: install packages
-          command: npm ci
+          command: |
+            npm ci
+            npm install snyk-to-html -g
 
       # {{ the build would normally happen here }}
 
@@ -54,7 +56,7 @@ jobs:
           name: Snyk Test
           command: |
             snyk auth $SNYK_TOKEN
-            snyk monitor -d --policy-path=".snyk" --strict-out-of-sync=false
+            snyk test --json | snyk-to-html > snykTest.html
  
 workflows:
   tsm-bootcamp:
