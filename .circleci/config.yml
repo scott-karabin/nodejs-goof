@@ -27,7 +27,7 @@ jobs:
   snyk_scan:
     docker:
       - image: cimg/node:12.22
-    working_directory: /tmp
+    # working_directory: /tmp
     steps:
       - checkout
 
@@ -42,8 +42,9 @@ jobs:
             curl https://static.snyk.io/cli/latest/snyk-linux -o snyk
             chmod +x ./snyk
             sudo mv ./snyk /usr/local/bin/snyk
-            mkdir /tmp/artifacts
-            sudo npm install snyk-to-html -g
+            # mkdir /tmp/artifacts
+            # sudo npm install snyk-to-html -g
+            sudo npm i -g snyk-filter
           # {{ Use the circlci build logs to add the missing step to the snyk setup commands here }}
           # Pass the authentication token to snyk using the $SNYK_TOKEN environment variable
           # Never place a Snyk auth token directly in a pipeline configuration file
@@ -57,7 +58,8 @@ jobs:
           name: Snyk Test
           command: |
             snyk auth $SNYK_TOKEN
-            snyk test --json | snyk-to-html -o /tmp/artifacts/snykTest.html
+            snyk monitor 
+            # snyk test --json | snyk-to-html -o /tmp/artifacts/snykTest.html
 
       - store_artifacts:
           path: /tmp/artifacts/snykTest.html
