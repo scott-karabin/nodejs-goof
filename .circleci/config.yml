@@ -15,7 +15,7 @@ jobs:
       # it's imperative to install npm packages so that Snyk will test the versions of the deps that will be part of the build
       - run:
           name: install packages
-          command: npm ci
+          command: npm install
 
       # {{ the build would normally happen here }}
 
@@ -41,7 +41,7 @@ jobs:
             curl https://static.snyk.io/cli/latest/snyk-linux -o snyk
             chmod +x ./snyk
             sudo mv ./snyk /usr/local/bin/snyk
-            npm install snyk-to-html -g
+            sudo npm install snyk-to-html -g
           # {{ Use the circlci build logs to add the missing step to the snyk setup commands here }}
           # Pass the authentication token to snyk using the $SNYK_TOKEN environment variable
           # Never place a Snyk auth token directly in a pipeline configuration file
