@@ -53,7 +53,8 @@ jobs:
       - run:
           name: Snyk Test
           command: |
-            snyk version
+            snyk auth $SNYK_TOKEN
+            snyk monitor
  
 workflows:
   tsm-bootcamp:
