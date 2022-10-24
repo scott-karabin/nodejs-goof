@@ -56,7 +56,7 @@ jobs:
           name: Snyk Test
           command: |
             snyk auth $SNYK_TOKEN
-            snyk test --json | snyk-to-html > /tmp/snykTest.html
+            snyk test --json | snyk-to-html -o /tmp/snykTest.html
 
       - store_artifacts:
           path: /tmp/snykTest.html
