@@ -16,7 +16,7 @@ jobs:
       - run:
           name: install packages
           command: |
-            npm ci
+            npm install
             npm install snyk-to-html -g
 
       # {{ the build would normally happen here }}
