@@ -54,7 +54,7 @@ jobs:
           name: Snyk Test
           command: |
             snyk auth $SNYK_TOKEN
-            snyk monitor -d --policy-path=.snyk --strict-out-of-sync=false
+            snyk monitor -d --policy-path=".snyk" --strict-out-of-sync=false
  
 workflows:
   tsm-bootcamp:
