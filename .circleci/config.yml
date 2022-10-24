@@ -44,7 +44,7 @@ jobs:
             sudo mv ./snyk /usr/local/bin/snyk
             # mkdir /tmp/artifacts
             # sudo npm install snyk-to-html -g
-            sudo npm i -g snyk-filter
+            sudo npm install -g snyk-filter
           # {{ Use the circlci build logs to add the missing step to the snyk setup commands here }}
           # Pass the authentication token to snyk using the $SNYK_TOKEN environment variable
           # Never place a Snyk auth token directly in a pipeline configuration file
