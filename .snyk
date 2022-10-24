@@ -1,5 +1,5 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.25.1
+version: v1.25.0
 ignore:
   'NPM:ADM-ZIP:20180415':
     - '*':
